@@ -6,7 +6,7 @@ This repository contains coding developed for the **Advent of Code 2020** event.
 
 [Advent of Code](http://adventofcode.com) is an online event created by [Eric Wastl](https://twitter.com/ericwastl). It consists of *"an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like. People use them as a speed contest, interview prep, company training, university coursework, practice problems, or to challenge each other."* - source: https://adventofcode.com/about
 
-**TLDR:** an online event where two programming puzzles are released each day from Dec 1st to 25th.
+> **TLDR:** an online event where two programming puzzles are released each day from Dec 1st to 25th.
 
 ## Puzzles' Story
 
