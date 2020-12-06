@@ -1,0 +1,131 @@
+from termcolor import colored
+import re
+import json
+
+
+def get_input():
+	'''
+		Open input file and split string into list of passports.
+	'''
+	with open('input.txt', 'r') as f:
+		input_string = f.read()
+	return list(map(str, (input_string.split('\n\n'))))
+
+
+def string2dict(string):
+	'''
+		Convert passport string to dict.
+	'''
+	string = '{\"' + string + '\"}'
+	string = string.replace('\n', ' ')
+	string = string.replace(' ', '\", \"')
+	string = string.replace(':', '\" : \"')
+	return json.loads(string)
+
+
+def check_year(string, field):
+	'''
+		Check if year value is valid.
+	'''
+	if len(string) == 4:
+		if (field == 'byr' and 1920 <= int(string) <= 2002) or \
+			(field == 'iyr' and 2010 <= int(string) <= 2020) or \
+			(field == 'eyr' and 2020 <= int(string) <= 2030):
+			return True
+	return False
+
+
+def check_height(string):
+	'''
+		Check if height value is valid.
+	'''
+	nbr = int(re.findall(r'\d+', string)[0])
+	if (string[-2:] == 'cm' and 150 <= nbr <= 193) or \
+		(string[-2:] == 'in' and 59 <= nbr <= 76):
+		return True
+	return False
+
+
+def check_hair_colour(string):
+	'''
+		Check if hair colour value is valid.
+	'''
+	if string[0] == '#' and len(string) == 7:
+		try:
+			int(string[1:7], 16)
+			return True
+		except ValueError:
+			return False
+	return False
+
+
+def check_eye_colour(string):
+	'''
+		Check if eye colour value is valid.
+	'''
+	colours = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']
+	if string in colours:
+		return True
+	return False
+
+
+def check_pid(string):
+	'''
+		Check if PID value is valid.
+	'''
+	if len(string) == 9:
+		try:
+			int(string)
+			return True
+		except ValueError:
+			return False
+	return False
+
+
+def valid_field_values(dc_passport):
+	'''
+		Validate passport's field values.
+	'''
+
+	def check_years(dc_passport):
+		for field in ['byr', 'iyr', 'eyr']:
+			if check_year(dc_passport.get(field), field) == False:
+				return False
+		return True
+
+	def check_fields(dc_passport):
+		dc_fields = {'hgt': check_height, \
+					'hcl': check_hair_colour, \
+					'ecl': check_eye_colour, \
+					'pid': check_pid}
+		for key in dc_fields:
+			if dc_fields[key](dc_passport.get(key)) == False:
+				return False
+		return True
+
+	if check_years(dc_passport) == False or \
+		check_fields(dc_passport) == False:
+		return False
+	return True
+
+
+if __name__ == '__main__':
+
+	part_one = colored("\nPart One:", 'magenta')
+	part_two = colored("\nPart Two:", 'magenta')
+
+	lines = get_input()
+
+	passports_1 = []
+	passports_2 = []
+	for string in lines:
+		dc_passport = string2dict(string)
+		if ('cid' in dc_passport and len(dc_passport) == 8) or \
+			('cid' not in dc_passport and len(dc_passport) == 7):
+			passports_1.append(dc_passport)
+			if valid_field_values(dc_passport):
+				passports_2.append(dc_passport)
+
+	print(part_one, len(passports_1))
+	print(part_two, len(passports_2))
+	print()
