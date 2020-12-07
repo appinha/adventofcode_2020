@@ -1,4 +1,4 @@
-# Day 5 - Binary Boarding
+# Day 5: Binary Boarding
 
 
 ## Part One

@@ -1,4 +1,4 @@
-# Day 4 - Passport Processing
+# Day 4: Passport Processing
 
 
 ## Part One
@@ -23,6 +23,7 @@ The automatic passport scanners are slow because they're having trouble **detect
 Passport data is validated in batch files (your puzzle input). Each passport is represented as a sequence of `key:value` pairs separated by spaces or newlines. Passports are separated by blank lines.
 
 Here is an example batch file containing four passports:
+
 ```
 ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
 byr:1937 iyr:2017 cid:147 hgt:183cm
@@ -68,6 +69,7 @@ You can continue to ignore the `cid` field, but each other field has strict rule
 - `cid` (Country ID) - ignored, missing or not.
 
 Your job is to count the passports where all required fields are both **present** and **valid** according to the above rules. Here are some example values:
+
 ```
 byr valid:   2002
 byr invalid: 2003
@@ -89,6 +91,7 @@ pid invalid: 0123456789
 ```
 
 Here are some invalid passports:
+
 ```
 eyr:1972 cid:100
 hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926
@@ -106,6 +109,7 @@ pid:3556412378 byr:2007
 ```
 
 Here are some valid passports:
+
 ```
 pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980
 hcl:#623a2f
