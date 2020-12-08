@@ -1,13 +1,17 @@
-from termcolor import colored
+# Import common core
+import sys
+sys.path.append('../common_core')
+from common_core import core
+
+# Import requirements
+from numpy import prod
 
 
-def get_input():
-	'''
-		Open input file and split string into list of lines.
-	'''
-	with open('input.txt', 'r') as f:
-		input_string = f.read()
-	return list(map(str, (input_string.split('\n'))))
+input_file = sys.argv[1]
+
+
+def ft_input_parser(raw_input):
+	return raw_input
 
 
 def count_trees(lines, right, down):
@@ -25,25 +29,14 @@ def count_trees(lines, right, down):
 	return count
 
 
-if __name__ == '__main__':
+def ft_part1(data):
+	return count_trees(data, 3, 1)
 
-	part_one = colored("\nPart One:", 'magenta')
-	part_two = colored("\nPart Two:", 'magenta')
 
-	lines = get_input()
-
-	## PART ONE
-	p1_res = count_trees(lines, 3, 1)
-
-	## PART TWO
+def ft_part2(data):
 	inputs = [[1, 1], [3, 1], [5, 1], [7, 1], [1, 2]]
-	p2_res = []
-	for i in inputs:
-		p2_res.append(count_trees(lines, i[0], i[1]))
-	p2_res_prod = 1
-	for r in p2_res:
-		p2_res_prod *= r
+	return prod([count_trees(data, i[0], i[1]) for i in inputs])
 
-	print(part_one, p1_res)
-	print(part_two, p2_res_prod)
-	print()
+
+if __name__ == '__main__':
+	core(input_file, ft_input_parser, ft_part1, ft_part2)
