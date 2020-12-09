@@ -1,56 +1,35 @@
-from termcolor import colored
+# Import common core
+import sys
+sys.path.append('../common_core')
+from common_core import core
 
 
-def get_input():
-	'''
-		Open input file and split string into list of groups.
-	'''
-	with open('input.txt', 'r') as f:
-		input_string = f.read()
-	return list(map(str, (input_string.split('\n\n'))))
+input_file = sys.argv[1]
 
 
-def get_ls_uniques(group):
-	'''
-		Get list of unique values (characters).
-	'''
-	group_flat = group.replace('\n', '')
-	return list(set(group_flat))
+def ft_input_parser(raw_input):
+	return raw_input
 
 
-def p1_count(group):
-	'''
-		Count how many unique values in group answers.
-	'''
-	return len(get_ls_uniques(group))
+def get_ls_uniques(block):
+	''' Get list of unique values (characters). '''
+	return list(set(block.replace('\n', '')))
 
 
-def p2_count(group):
-	'''
-		Count how many answers are present in all group members answers.
-	'''
-	nbr_members = group.count('\n') + 1
-	ls_uniques = get_ls_uniques(group)
-	count = 0
-	for c in ls_uniques:
-		if group.count(c) == nbr_members:
-			count += 1
-	return count
+def ft_part1(data):
+	''' Sum the counts of unique values in groups' answers. '''
+	return sum(len(get_ls_uniques(block)) for block in data)
+
+
+def ft_part2(data):
+	''' Sum the counts of answers present in all group members answers. '''
+	def count(block):
+		nbr_members = block.count('\n') + 1
+		ls_uniques = get_ls_uniques(block)
+		return sum(1 for c in ls_uniques if block.count(c) == nbr_members)
+
+	return sum(count(block) for block in data)
 
 
 if __name__ == '__main__':
-
-	part_one = colored("\nPart One:", 'magenta')
-	part_two = colored("\nPart Two:", 'magenta')
-
-	ls_groups = get_input()
-
-	p1_count_sum = 0
-	p2_count_sum = 0
-	for group in ls_groups:
-		p1_count_sum += p1_count(group)
-		p2_count_sum += p2_count(group)
-
-	print(part_one, p1_count_sum)
-	print(part_two, p2_count_sum)
-	print()
+	core(input_file, ft_input_parser, ft_part1, ft_part2, delimiter='\n\n')
