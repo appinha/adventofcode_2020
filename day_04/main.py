@@ -1,32 +1,40 @@
-from termcolor import colored
+# Import common core
+import sys
+sys.path.append('../common_core')
+from common_core import core
+
+# Import requirements
 import re
 import json
 
 
-def get_input():
-	'''
-		Open input file and split string into list of passports.
-	'''
-	with open('input.txt', 'r') as f:
-		input_string = f.read()
-	return list(map(str, (input_string.split('\n\n'))))
+input_file = sys.argv[1]
 
 
-def string2dict(string):
-	'''
-		Convert passport string to dict.
-	'''
-	string = '{\"' + string + '\"}'
-	string = string.replace('\n', ' ')
-	string = string.replace(' ', '\", \"')
-	string = string.replace(':', '\" : \"')
-	return json.loads(string)
+def ft_input_parser(raw_input):
+	''' Convert passport string to dict. '''
+
+	def parse_line(line):
+		line = line.replace('\n', ' ')
+		line = re.sub(r'([a-z]+):([a-z\d#]+)', r'"\1":"\2",', line)
+		return json.loads('{' + line[:-1] + '}')
+
+	return [parse_line(line) for line in raw_input]
+
+
+def validate_passports(data):
+
+	def check(dc_item):
+		if ('cid' in dc_item and len(dc_item) == 8) or \
+			('cid' not in dc_item and len(dc_item) == 7):
+			return True
+		return False
+
+	return [dc_item for dc_item in data if check(dc_item)]
 
 
 def check_year(string, field):
-	'''
-		Check if year value is valid.
-	'''
+	''' Check if year value is valid. '''
 	if len(string) == 4:
 		if (field == 'byr' and 1920 <= int(string) <= 2002) or \
 			(field == 'iyr' and 2010 <= int(string) <= 2020) or \
@@ -36,9 +44,7 @@ def check_year(string, field):
 
 
 def check_height(string):
-	'''
-		Check if height value is valid.
-	'''
+	''' Check if height value is valid. '''
 	nbr = int(re.findall(r'\d+', string)[0])
 	if (string[-2:] == 'cm' and 150 <= nbr <= 193) or \
 		(string[-2:] == 'in' and 59 <= nbr <= 76):
@@ -47,9 +53,7 @@ def check_height(string):
 
 
 def check_hair_colour(string):
-	'''
-		Check if hair colour value is valid.
-	'''
+	''' Check if hair colour value is valid. '''
 	if string[0] == '#' and len(string) == 7:
 		try:
 			int(string[1:7], 16)
@@ -60,9 +64,7 @@ def check_hair_colour(string):
 
 
 def check_eye_colour(string):
-	'''
-		Check if eye colour value is valid.
-	'''
+	''' Check if eye colour value is valid. '''
 	colours = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']
 	if string in colours:
 		return True
@@ -70,9 +72,7 @@ def check_eye_colour(string):
 
 
 def check_pid(string):
-	'''
-		Check if PID value is valid.
-	'''
+	''' Check if PID value is valid. '''
 	if len(string) == 9:
 		try:
 			int(string)
@@ -82,10 +82,8 @@ def check_pid(string):
 	return False
 
 
-def valid_field_values(dc_passport):
-	'''
-		Validate passport's field values.
-	'''
+def validate_fields(dc_passport):
+	''' Validate passport's field values. '''
 
 	def check_years(dc_passport):
 		for field in ['byr', 'iyr', 'eyr']:
@@ -109,23 +107,14 @@ def valid_field_values(dc_passport):
 	return True
 
 
+def ft_part1(data):
+	return len(validate_passports(data))
+
+
+def ft_part2(data):
+	ls_valid_passports = validate_passports(data)
+	return len([dc_item for dc_item in ls_valid_passports if validate_fields(dc_item)])
+
+
 if __name__ == '__main__':
-
-	part_one = colored("\nPart One:", 'magenta')
-	part_two = colored("\nPart Two:", 'magenta')
-
-	lines = get_input()
-
-	passports_1 = []
-	passports_2 = []
-	for string in lines:
-		dc_passport = string2dict(string)
-		if ('cid' in dc_passport and len(dc_passport) == 8) or \
-			('cid' not in dc_passport and len(dc_passport) == 7):
-			passports_1.append(dc_passport)
-			if valid_field_values(dc_passport):
-				passports_2.append(dc_passport)
-
-	print(part_one, len(passports_1))
-	print(part_two, len(passports_2))
-	print()
+	core(input_file, ft_input_parser, ft_part1, ft_part2, delimiter="\n\n")
