@@ -1,24 +1,22 @@
-from termcolor import colored
+# Import common core
+import sys
+sys.path.append('../common_core')
+from common_core import core
 
 
-def get_input():
-	'''
-		Open input file and split string into list of boarding passes.
-	'''
-	with open('input.txt', 'r') as f:
-		input_string = f.read()
-	return list(map(str, (input_string.split('\n'))))
+input_file = sys.argv[1]
+
+
+def ft_input_parser(raw_input):
+	return raw_input
 
 
 def bpcode2seatID(bpcode):
 	'''
 		Convert boarding pass code to seat ID.
 	'''
-
-	def b2i(code, char):
-		'''
-			Convert binary pattern to integer.
-		'''
+	def bin2int(code, char):
+		''' Convert binary pattern to integer. '''
 		loc = 0
 		exp = len(code) - 1
 		for c in code:
@@ -27,29 +25,25 @@ def bpcode2seatID(bpcode):
 			exp -= 1
 		return loc
 
-	row = b2i(bpcode[0:7], 'B')
-	col = b2i(bpcode[7:], 'R')
+	return 8 * bin2int(bpcode[0:7], 'B') + bin2int(bpcode[7:], 'R')
 
-	return row * 8 + col
+
+def get_seatID(data):
+	return [bpcode2seatID(line) for line in data]
+
+
+def ft_part1(data):
+	return max(get_seatID(data))
+
+
+def ft_part2(data):
+	ls_seatID = get_seatID(data)
+	range_seatID = [*range(min(ls_seatID), max(ls_seatID) + 1)]
+	for seat in range_seatID:
+		if seat not in ls_seatID:
+			return seat
 
 
 if __name__ == '__main__':
+	core(input_file, ft_input_parser, ft_part1, ft_part2)
 
-	part_one = colored("\nPart One:", 'magenta')
-	part_two = colored("\nPart Two:", 'magenta')
-
-	lines = get_input()
-
-	ls_seat_ID = []
-	for bpcode in lines:
-		ls_seat_ID.append(bpcode2seatID(bpcode))
-
-	seatID_range = [*range(min(ls_seat_ID), max(ls_seat_ID) + 1)]
-	for n in seatID_range:
-		if n not in ls_seat_ID:
-			my_seat = n
-			break
-
-	print(part_one, max(ls_seat_ID))
-	print(part_two, my_seat)
-	print()
