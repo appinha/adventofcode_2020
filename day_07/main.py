@@ -1,18 +1,19 @@
+# Import common core
 import sys
 sys.path.append('../common_core')
 from common_core import core
 
+# Import requirements
 import re
 
 
-input_file = 'input.txt'
+input_file = sys.argv[1]
 
 
 def ft_input_parser(raw_input):
+	'''Convert given input (list of strings) to dictionary of bag rules.'''
 
-	def parse_rules(line):
-		'''Convert given line to dictionary key of bag rules.'''
-
+	def parse_line(line):
 		item_regex = re.compile(r'^(\d+) ([a-z\s]+) bags?\.?$')
 
 		def get_contents(line):
@@ -24,16 +25,14 @@ def ft_input_parser(raw_input):
 			return container, []
 		return container, [get_contents(item) for item in contents.split(', ')]
 
-	return dict([parse_rules(line) for line in raw_input])
+	return dict([parse_line(line) for line in raw_input])
 
 
 def ft_part1(data):
 
 	def rec_find_bag(data, needle):
-		'''
-			Recursively check if given bag (needle) is in given dictionary of
-			bag rules (data).
-		'''
+		''' Recursively check if given bag (needle) is in given dictionary of
+			bag rules (data). '''
 		ls_keys = [key for key in data for value in data[key] if value[1] == needle]
 		for valid_key in ls_keys:
 			ls_keys += rec_find_bag(data, valid_key)
@@ -46,9 +45,7 @@ def ft_part1(data):
 def ft_part2(data):
 
 	def rec_count(data, needle):
-		'''
-			Recursively count how many bags are inside the given bag (needle).
-		'''
+		''' Recursively count bags inside given bag (needle). '''
 		return 1 + sum(qty * rec_count(data, item) for qty, item in data[needle])
 
 	return rec_count(data, 'shiny gold') - 1
@@ -56,4 +53,3 @@ def ft_part2(data):
 
 if __name__ == '__main__':
 	core(input_file, ft_input_parser, ft_part1, ft_part2)
-
