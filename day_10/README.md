@@ -152,4 +152,4 @@ You glance back down at your bag and try to remember why you brought so many ada
 
 
 ## Source
-https://adventofcode.com/2020/day/XX
+https://adventofcode.com/2020/day/10
