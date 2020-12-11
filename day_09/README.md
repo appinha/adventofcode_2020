@@ -1,13 +1,4 @@
-# Day XX:
+# Day 9:
 
-
-## Part One
-
-
-
-## Part Two
-
-
-
-## Source
-https://adventofcode.com/2020/day/XX
+## Puzzle instructions:
+https://adventofcode.com/2020/day/9
