@@ -1,0 +1,14 @@
+
+L.LL.LL.LL		#.##.##.##		#.LL.L#.##		#.##.L#.##		#.#L.L#.##		#.#L.L#.##
+LLLLLLL.LL		#######.##		#LLLLLL.L#		#L###LL.L#		#LLL#LL.L#		#LLL#LL.L#
+L.L.L..L..		#.#.#..#..		L.L.L..L..		L.#.#..#..		L.L.L..#..		L.#.L..#..
+LLLL.LL.LL		####.##.##		#LLL.LL.L#		#L##.##.L#		#LLL.##.L#		#L##.##.L#
+L.LL.LL.LL		#.##.##.##		#.LL.LL.LL		#.##.LL.LL		#.LL.LL.LL		#.#L.LL.LL
+L.LLLLL.LL		#.#####.##		#.LLLL#.##		#.###L#.##		#.LL#L#.##		#.#L#L#.##
+..L.L.....		..#.#.....		..L.L.....		..#.#.....		..L.L.....		..L.L.....
+LLLLLLLLLL		##########		#LLLLLLLL#		#L######L#		#L#LLLL#L#		#L#L##L#L#
+L.LLLLLL.L		#.######.#		#.LLLLLL.L		#.LL###L.L		#.LLLLLL.L		#.LLLLLL.L
+L.LLLLL.LL		#.#####.##		#.#LLLL.##		#.#L###.##		#.#L#L#.##		#.#L#L#.##
+
+1) permanently # -> seats with < 4 adjacent seats not permanently stated.
+2) permanently L -> seats with at least one permanentely occupied adjacent seat.
