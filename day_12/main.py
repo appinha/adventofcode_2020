@@ -10,12 +10,41 @@ from collections import defaultdict, deque
 input_file = sys.argv[1]
 
 
+directions = ['N', 'E', 'S', 'W']
+
+class Waypoint:
+	''' Class for waypoint. '''
+	def __init__(self, dir_NS, value_NS, dir_EW, value_EW):
+		self.dir_NS = dir_NS
+		self.value_NS = value_NS
+		self.dir_EW = dir_EW
+		self.value_EW = value_EW
+
+	def __str__(self):
+		return "Waypoint: %s%i %s%i" % \
+			(self.dir_NS, self.value_NS, self.dir_EW, self.value_EW)
+
+	def update(self, instr, value):
+		''' Update waypoint according to given instruction. '''
+		if instr in ['N', 'S']:
+			self.value_NS += value if self.dir_NS == instr else -value
+		if instr in ['E', 'W']:
+			self.value_EW += value if self.dir_EW == instr else -value
+
+	def rotate(self, instr, value):
+		''' Rotate current waypoint according to given instruction. '''
+		wp_dirs = ['NE', 'SE', 'SW', 'NW']
+		new_dir = rotate_dir(wp_dirs, (self.dir_NS + self.dir_EW), instr, value)
+		diff = wp_dirs.index(new_dir) - wp_dirs.index((self.dir_NS + self.dir_EW))
+		self.dir_NS = new_dir[0]
+		self.dir_EW = new_dir[1]
+		if abs(diff) % 2 == 1:
+			self.value_NS, self.value_EW = self.value_EW, self.value_NS
+
+
 def ft_input_parser(raw_input):
 	''' Convert input to a list of [instruction (string), value (int)]. '''
 	return [[line[0], int(line[1:])] for line in raw_input]
-
-
-directions = ['N', 'E', 'S', 'W']
 
 
 def rotate_dir(dirs, curr_dir, clockwise, deg):
@@ -57,31 +86,16 @@ def ft_part2(data):
 		dictionary with direction offsets. The return is the ship's *Manhattan
 		distance*, calculated from collected direction offsets.
 	'''
-	def rotate_wp(curr_wp, instr, value):
-		''' Rotate current waypoint according to given instruction. '''
-		wp_dirs = ['NE', 'SE', 'SW', 'NW']
-		new_wp = [rotate_dir(wp_dirs, curr_wp[0], instr, value)]
-		diff = wp_dirs.index(new_wp[0]) - wp_dirs.index(curr_wp[0])
-		return new_wp + [v for v in curr_wp[1:]] if abs(diff) % 2 == 0 \
-			else new_wp + [v for v in reversed(curr_wp[1:])]
-
-	def update_wp(waypoint, instr, value):
-		''' Update waypoint according to given instruction. '''
-		if instr == 'N' or instr == 'S':
-			waypoint[1] += value if waypoint[0][0] == instr else -value
-		if instr == 'E' or instr == 'W':
-			waypoint[2] += value if waypoint[0][1] == instr else -value
-
 	dc_dirs = defaultdict(list)
-	waypoint = ['NE', 1, 10]
+	wp = Waypoint('N', 1, 'E', 10)
 	for instr, value in data:
 		if instr in directions:
-			update_wp(waypoint, instr, value)
+			wp.update(instr, value)
 		if instr == 'R' or instr == 'L':
-			waypoint = rotate_wp(waypoint, instr, value)
+			wp.rotate(instr, value)
 		if instr == 'F':
-			dc_dirs[waypoint[0][0]].append(value * waypoint[1])
-			dc_dirs[waypoint[0][1]].append(value * waypoint[2])
+			dc_dirs[wp.dir_NS].append(value * wp.value_NS)
+			dc_dirs[wp.dir_EW].append(value * wp.value_EW)
 	return calc_dist(dc_dirs)
 
 
