@@ -1,0 +1,11 @@
+
+L.LL.LL.LL		#.##.##.##		#.LL.LL.L#		#.L#.##.L#		#.L#.L#.L#		#.L#.L#.L#		LLL###LLL#
+LLLLLLL.LL		#######.##		#LLLLLL.LL		#L#####.LL		#LLLLLL.LL		#LLLLLL.LL		#LLLLLL.LL
+L.L.L..L..		#.#.#..#..		L.L.L..L..		L.#.#..#..		L.L.L..#..		L.L.L..#..		L.L.L..#..
+LLLL.LL.LL		####.##.##		LLLL.LL.LL		##L#.##.##		##LL.LL.L#		##L#.#L.L#		##L#.#L.L#
+L.LL.LL.LL		#.##.##.##		L.LL.LL.LL		#.##.#L.##		L.LL.LL.L#		L.L#.#L.L#		L.L#.LL.L#
+L.LLLLL.LL		#.#####.##		L.LLLLL.LL		#.#####.#L		#.LLLLL.LL		#.L####.LL		#.LLLL#.LL
+..L.L.....		..#.#.....		..L.L.....		..#.#.....		..L.L.....		..#.#.....		..#.L.....
+LLLLLLLLLL		##########		LLLLLLLLL#		LLL####LL#		LLLLLLLLL#		LLL###LLL#		LLL###LLL#
+L.LLLLLL.L		#.######.#		#.LLLLLL.L		#.L#####.L		#.LLLLL#.L		#.LLLLL#.L		#.LLLLL#.L
+L.LLLLL.LL		#.#####.##		#.LLLLL.L#		#.L####.L#		#.L#LL#.L#		#.L#LL#.L#		#.L#LL#.L#
