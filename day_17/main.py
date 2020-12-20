@@ -4,72 +4,77 @@ sys.path.append('../common_core')
 from common_core import core
 
 # Import requirements
-import copy
+import itertools as it
 from collections import defaultdict
 
 
 input_file = sys.argv[1]
 
 
+def ft_input_parser(raw_input):
+	return raw_input
+
+
 def get_ina_adj(exts):
 	''' Get list of new layer of inactive neighbors. '''
-	def gen_pos(xl, xh, yl, yh, zl, zh):
-		''' Generate coordinates within given low and high range values. '''
-		return [(x, y, z) for x in range(xl, xh) for y in range(yl, yh) \
-				for z in range(zl, zh)]
-
-	nxl = exts[0] - 1 # xl
-	nxh = exts[1] + 2 # xh
-	nyl = exts[2] - 1 # yl
-	nyh = exts[3] + 2 # yh
-	nzl = exts[4] - 1 # zl
-	nzh = exts[5] + 1 # zh
-	ls_new = gen_pos(nxl, nxh, nyl, nyh, nzl, nzl + 1) + \
-				gen_pos(nxl, nxh, nyl, nyh, nzh, nzh + 1) + \
-				gen_pos(nxl, nxh, nyl, nyl + 1, nzl + 1, nzh) + \
-				gen_pos(nxl, nxh, nyh - 1, nyh, nzl + 1, nzh) + \
-				gen_pos(nxl, nxl + 1, nyl + 1, nyh - 1, nzl + 1, nzh) + \
-				gen_pos(nxh - 1, nxh, nyl + 1, nyh - 1, nzl + 1, nzh)
-	return ls_new
+	ls_diff = [-1, +1]
+	lim = [n + ls_diff[i % 2] for i, n in enumerate(exts)]
+	ls_ranges_out = [range(lim[i], lim[i + 1]) for i in range(0, len(lim), 2)]
+	ls_ranges_in = [range(exts[i], exts[i + 1]) for i in range(0, len(exts), 2)]
+	outer = list(it.product(*ls_ranges_out))
+	inner = list(it.product(*ls_ranges_in))
+	return [pos for pos in outer if pos not in inner]
 
 
-def ft_input_parser(raw_input):
+def input2dict(raw_input, n_dimen):
+	'''
+		This function parses the input, converting the given list of strings
+		(lines from the input file), which represents a 2D map of Conway Cubes,
+		to a dictionary (function's return) with keys for storing cube positions
+		(tuples) according to cube's state:
+			- '.': cube is inactive;
+			- '#': cube is active.
+		Other required complementary information are stored as follows:
+			- 'rel_adj': list of relative adjacent coordinates;
+			- 'exts': current extents of infinite grid.
+	'''
+	extra_pos = tuple(it.chain.from_iterable(it.repeat([0], n_dimen - 2)))
+	extra_exts = list(it.chain.from_iterable(it.repeat([0, 1], n_dimen - 2)))
+	rel_adj = list(it.product([-1, 0, 1], repeat=n_dimen))
+	rel_adj.remove((0, 0) + extra_pos)
 	data = defaultdict(list)
+	data['rel_adj'] = rel_adj
 	for x, line in enumerate(raw_input):
 		for y, value in enumerate(line):
 			if value == '.':
-				data['.'].append((x, y, 0))
+				data['.'].append((x, y) + extra_pos)
 			if value == '#':
-				data['#'].append((x, y, 0))
-	data['exts'] = [0, x, 0, y, 0, 0]
+				data['#'].append((x, y) + extra_pos)
+	data['exts'] = [0, x + 1, 0, y + 1] + extra_exts
 	data['.'] += get_ina_adj(data['exts'])
 	return data
 
 
-XX = 0
-YY = 1
-ZZ = 2
-
-ls_rel_adj = [(x, y, z) for x in range(-1, 2) for y in range(-1, 2) \
-			for z in range(-1, 2) if not (x == 0 and y == 0 and z == 0)]
-
 def get_all_adjacents(data, dc_adj):
 	''' Create a dictionary of neighbors (adjacent cubes) for all cubes. '''
-	def get_adj(ls_pos):
+	def get_abs_adj(pos, adj):
+		''' Get absolute coordinates of neighbor (adj) for given cube (pos). '''
+		return tuple([pos[i] + adj[i] for i in range(len(pos))])
+
+	def get_adjacents(ls_pos):
 		''' Get neighbors for cubes in list (ls_pos)'''
 		for pos in ls_pos:
 			if pos not in ls_existing_pos:
-				dc_adj[pos] += [(a[XX] + pos[XX], a[YY] + pos[YY], \
-									a[ZZ] + pos[ZZ]) \
-									for a in ls_rel_adj[:]]
+				dc_adj[pos] += [get_abs_adj(pos, adj) for adj in data['rel_adj'][:]]
 
 	ls_existing_pos = list(dc_adj)
 	for ls_pos in [data['#'], data['.']]:
-		get_adj(ls_pos)
+		get_adjacents(ls_pos)
 	return dc_adj
 
 
 def count_actives(adj, data):
+	''' Count how many active cubes are in given list of adjacent cubes. '''
 	count = 0
 	for a in adj:
 		count += 1 if a in data['#'] else 0
@@ -77,30 +82,23 @@ def count_actives(adj, data):
 
 
 def update_state(ls_pos, orig, dest):
+	''' Update cube states (orig -> dest). '''
 	for pos in ls_pos:
 		orig.remove(pos)
 		dest.append(pos)
 
 
-def print_data_info(data, dc_adj):
-	print("DATA INFO")
-	qty_act = len(data['#'])
-	qty_ina = len(data['.'])
-	print("• qty '#':", qty_act)
-	print("• qty '.':", qty_ina)
-	print("• qty all:", qty_act + qty_ina)
-	print("• qty adj:", len(dc_adj))
-	print("• extents:", data['exts'])
-	print()
-
-
 def boot_up(data):
+	'''
+		This function loops through state rules, changing cube states from
+		active to inactive and vice-versa, for six cycles. The return is the
+		quantity of remaining active cubes after the six-cycle boot.
+	'''
 	dc_adj = defaultdict(list)
 	ls_inc = [-1, +1]
 	i = 0
 	while i < 6:
 		dc_adj = get_all_adjacents(data, dc_adj)
-		# print_data_info(data, dc_adj)
 		act2ina = [pos for pos in data['#'] \
 					if count_actives(dc_adj[pos], data) not in [2, 3]]
 		ina2act = [pos for pos in data['.'] \
@@ -114,11 +112,11 @@ def boot_up(data):
 
 
 def ft_part1(data):
-	return boot_up(copy.deepcopy(data))
+	return boot_up(input2dict(data, 3))
 
 
 def ft_part2(data):
-	return 0
+	return boot_up(input2dict(data, 4))
 
 
 if __name__ == '__main__':
