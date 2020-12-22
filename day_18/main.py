@@ -22,30 +22,39 @@ class Nbr(int):
 	def __sub__(self, x):
 		return Nbr(int(self) * x)
 
+	def __mul__(self, x):
+		return Nbr(int(self) + x)
+
 
 def ft_input_parser(raw_input):
 	return raw_input
 
 
-def ft_eval_expr(data):
+def ft_eval_expr(data, part):
 	'''
 	This function applies regex to each line (string) of the input, converting
 	digits to a Nbr object and replacing '*' with '-' (in order to perform a
-	multiplication with same precedence as addition), thus applying eval(). It
-	returns the sum of all eval() results.
+	multiplication with same precedence as addition) and (for Part Two) '+' with
+	'*' (in order to perform addition with more precedence than multiplication),
+	thus applying eval(). It returns the sum of all eval() results.
 	'''
-	return sum(eval(re.sub(r'(\d+)', r'Nbr(\1)', line).replace('*', '-')) \
-			for line in data)
+	def regex(line):
+		if part == 1:
+			return re.sub(r'(\d+)', r'Nbr(\1)', line).replace('*', '-')
+		if part == 2:
+			return re.sub(r'(\d+)', r'Nbr(\1)', line\
+					).replace('*', '-').replace('+', '*')
+
+	return sum(eval(regex(line)) for line in data)
 
 
 def ft_part1(data):
-	return ft_eval_expr(data)
+	return ft_eval_expr(data, 1)
 
 
-#def ft_part2(data):
-#	return
+def ft_part2(data):
+	return ft_eval_expr(data, 2)
 
 
 if __name__ == '__main__':
-	#core(input_file, ft_input_parser, ft_part1, ft_part2, delimiter='\n\n')
-	core(input_file, ft_input_parser, ft_part1, False)
+	core(input_file, ft_input_parser, ft_part1, ft_part2)
