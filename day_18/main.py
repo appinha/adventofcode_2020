@@ -13,8 +13,10 @@ input_file = sys.argv[1]
 class Nbr(int):
 	'''
 	Class for storing numbers from math expressions.
-	The subtraction method will perform a multiplication instead, so it has same
-	precedence as addition (Part One).
+	The subtraction method will perform a multiplication instead, in order to
+	perform multiplications with same precedence as additions (Part One).
+	The multiplication method will perform an addition instead, in order to
+	perform additions with more precedence than multiplications.
 	'''
 	def __add__(self, x):
 		return Nbr(int(self) + x)
@@ -32,11 +34,12 @@ def ft_input_parser(raw_input):
 
 def ft_eval_expr(data, part):
 	'''
-	This function applies regex to each line (string) of the input, converting
-	digits to a Nbr object and replacing '*' with '-' (in order to perform a
-	multiplication with same precedence as addition) and (for Part Two) '+' with
-	'*' (in order to perform addition with more precedence than multiplication),
-	thus applying eval(). It returns the sum of all eval() results.
+	This function applies regex to each line (string) of the input, convertingr
+	digits to Nbr objects, thus replacing '*' with '-' (in order to perform
+	multiplications with same precedence as additions), and (for Part Two)
+	'+' with '*' (in order to perform additions with more precedence than
+	multiplications), thus applying eval() to the resulting expression.
+	It returns the sum of all eval() results (for each line in the input).
 	'''
 	def regex(line):
 		if part == 1:
