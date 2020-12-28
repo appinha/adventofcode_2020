@@ -1,7 +1,7 @@
 # Import common core
 import sys
 sys.path.append('../common_core')
-from common_core import core
+from common_core import ft_core
 
 # Import requirements
 from numpy import prod
@@ -39,4 +39,4 @@ def ft_part2(data):
 
 
 if __name__ == '__main__':
-	core(input_file, ft_input_parser, ft_part1, ft_part2)
+	ft_core(input_file, ft_input_parser, ft_part1, ft_part2)

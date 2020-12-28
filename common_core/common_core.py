@@ -1,8 +1,10 @@
 from termcolor import colored
 import time
 
-def core(input_file, ft_input_parser, ft_part1=False, ft_part2=False, delimiter='\n'):
 
+def ft_core(input_file, ft_input_parser, ft_part1=False, ft_part2=False, \
+			delimiter='\n'):
+	'''Common framework for solving AoC puzzels.'''
 	start_time = time.time()
 
 	with open(input_file, 'r') as f:
