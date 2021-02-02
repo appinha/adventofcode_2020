@@ -4,15 +4,40 @@
 
 ---
 
-1. [**Contents**](#contents)
+1. [**About**](#about)
 2. [**What is _Advent of Code_**](#what-is-advent-of-code)
-3. [**Puzzles' Story**](#puzzles-story)
+3. [**Table of Puzzles**](#table-of-puzzles)
+4. [**Puzzles' Story**](#puzzles-story)
 
 ---
 
 ![Completed calendar](calendar.png)
 
-## Contents
+## About
+
+This is the **first time** I participate in the event and have greatly enjoyed it! So much fun and learning in the process 😀
+
+I had little Python experience (and no formal education in CS) prior to Advent of Code 2020 and after completing all 25 puzzles in full I feel very confident about my recently acquired skills. It allowed me to deepen my knowledge of Python's data structures, learn to use many handy libraries and tools, and even develop a personal style for coding in Python.
+
+A delightful surprise was to experience in practical terms the concepts of analysis of algorithms and data structures (code complexity). Some puzzles force the writing of efficient and well thought code in order to obtain a result within a reasonable amount of time, thus promoting a valuable opportunity to evidence the importance of such intelligence.
+
+I tried following some **principles** when developing my solutions:
+
+* write well structured, readable (standardized and meaningful naming system) and scalable code;
+* explore features and tools from the programming language;
+* take advantage of standard and widely used libraries.
+
+Finally, I'm ecstatic for completing the puzzles within 24 days (I started only on the 6th) and learning this much in such a short amount of time! I have become a fan of the event and will definitely continue to participate and even try to complete the other years' puzzles 😁
+
+## What is *Advent of Code*?
+
+> **TLDR:** an online event where a two-part programming puzzle is released each day from Dec 1st to 25th.
+
+[*Advent of Code*](http://adventofcode.com) is an online event created by [Eric Wastl](http://was.tl/).
+
+It consists of *"an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like. People use them as a speed contest, interview prep, company training, university coursework, practice problems, or to challenge each other."* - source: https://adventofcode.com/about
+
+## Table of Puzzles
 
 | DAY							| PUZZLE TITLE					| PUZZLE SUMMARY
 | :-:							| :-							| :-
@@ -41,14 +66,6 @@
 | [📁 23](my_solutions/day_23)	| **Crab Cups**					| 📃 **Input:** cups' labels (integers).<br />⭐ **Part One:** simulate `100` moves of _crab's cup game_ with given cups (total of `9`) and get labels on the cups after cup `1`. <br />⭐ **Part Two:** simulate ten million (`10000000`) moves of _crab's cup game_ with one million (`1000000`) cups and get product of the two cup labels immediately clockwise (after) cup `1`.
 | [📁 24](my_solutions/day_24)	| **Lobby Layout**				| 📃 **Input:** list of the tiles that need to be flipped over, in the form of hex grid directions (`e`, `se`, `sw`, `w`, `nw`, and `ne`).<br />⭐ **Part One:** count how many tiles are left with the black side up after parsing the input - i.e. after going through the renovation crew's list and determining which tiles they need to flip. <br />⭐ **Part Two:** count how many tiles will be black after 100 days of living art exhibit of lobby's tile floor.
 | [📁 25](my_solutions/day_25)	| **Combo Breaker**				| 📃 **Input:** pair of public keys.<br />⭐ **Part One:** find encryption key of handshake.
-
-## What is *Advent of Code*?
-
-> **TLDR:** an online event where a two-part programming puzzle is released each day from Dec 1st to 25th.
-
-[*Advent of Code*](http://adventofcode.com) is an online event created by [Eric Wastl](http://was.tl/).
-
-It consists of *"an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like. People use them as a speed contest, interview prep, company training, university coursework, practice problems, or to challenge each other."* - source: https://adventofcode.com/about
 
 ## Puzzles' Story
 
