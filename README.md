@@ -19,15 +19,15 @@ This is the **first time** I participate in the event and have greatly enjoyed i
 
 I had little Python experience (and no formal education in CS) prior to Advent of Code 2020 and after completing all 25 puzzles in full I feel very confident about my recently acquired skills. It allowed me to deepen my knowledge of Python's data structures, learn to use many handy libraries and tools, and even develop a personal style for coding in Python.
 
-A delightful surprise was to experience in practical terms the concepts of analysis of algorithms and data structures (code complexity). Some puzzles force the writing of efficient and well thought code in order to obtain a result within a reasonable amount of time, thus promoting a valuable opportunity to evidence the importance of such intelligence.
+A delightful surprise was to experience in practical terms the concepts of algorithm and data structure analysis (computational complexity). Some puzzles force the writing of efficient and well thought code in order to obtain a result within a reasonable amount of time, thus promoting a valuable opportunity to evidence the importance of such intelligence.
 
 I tried following some **principles** when developing my solutions:
 
-* write well structured, readable (standardized and meaningful naming system) and scalable code;
+* write well structured, readable and scalable code;
 * explore features and tools from the programming language;
 * take advantage of standard and widely used libraries.
 
-Finally, I'm ecstatic for completing the puzzles within 24 days (I started only on the 6th) and learning this much in such a short amount of time! I have become a fan of the event and will definitely continue to participate and even try to complete the other years' puzzles 😁
+Finally, I'm ecstatic for **completing** the puzzles within 24 days (I started only on the 6th) and learning this much in such a short amount of time! I have become a fan of the event and will definitely continue to participate and even try to complete the other years' puzzles 😁
 
 ## What is *Advent of Code*?
 
