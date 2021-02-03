@@ -6,8 +6,10 @@
 
 1. [**About**](#about)
 2. [**What is _Advent of Code_**](#what-is-advent-of-code)
-3. [**Table of Puzzles**](#table-of-puzzles)
-4. [**Puzzles' Story**](#puzzles-story)
+3. [**Contents**](#contents)
+3. [**Usage**](#usage)
+4. [**Table of Puzzles**](#table-of-puzzles)
+5. [**Puzzles' Story**](#puzzles-story)
 
 ---
 
@@ -36,6 +38,27 @@ Finally, I'm ecstatic for **completing** the puzzles within 24 days (I started o
 [*Advent of Code*](http://adventofcode.com) is an online event created by [Eric Wastl](http://was.tl/).
 
 It consists of *"an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like. People use them as a speed contest, interview prep, company training, university coursework, practice problems, or to challenge each other."* - source: https://adventofcode.com/about
+
+## Contents
+
+The solutions for the puzzles are available in the folder [📁 my_solutions](my_solutions) and are organized into subfolders for each day of the event. There is also a subfolder called [📁 common_core](common_core) which stores the main framework developed to streamline the coding of puzzle solutions.
+
+Inside each day folder, the following files can be found:
+
+* `input_test.txt` - text file containing input from tests given in the puzzle.
+* `input.txt` - text file containing my personal input for the puzzle.
+* `main.py` - Python code for solving the puzzle.
+* `Makefile` - script for running the puzzle solution code.
+
+## Usage
+
+Inside each day folder, run `make` to get the solution for my personal input for the puzzle or `make test` to get the solution for tests given in the puzzle.
+
+![Screenshot of usage of make and make test](usage1.png)
+
+Some puzzles have different test input for each part; in this case, run `make test1` fort Part One's test and `make test2`for Part Two's test.
+
+![Screenshot of usage of make test1 and make test2](usage2.png)
 
 ## Table of Puzzles
 
