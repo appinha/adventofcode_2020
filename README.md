@@ -1,21 +1,30 @@
-# 🌟 Advent of Code 2020 🎄
+<h1 align="center">
+	🌟 Advent of Code 2020 🎄
+</h1>
 
-*My Python solutions for **Advent of Code 2020**.*
+<p align="center">
+	<i>My Python solutions for <b>Advent of Code 2020</b>.</i>
+</p	>
 
----
-
-1. [**About**](#about)
-2. [**What is _Advent of Code_**](#what-is-advent-of-code)
-3. [**Contents**](#contents)
-3. [**Usage**](#usage)
-4. [**Table of Puzzles**](#table-of-puzzles)
-5. [**Puzzles' Story**](#puzzles-story)
+<h3 align="center">
+	<a href="#%EF%B8%8F-about">About</a>
+	<span> · </span>
+	<a href="#-what-is-advent-of-code">What is <i>Advent of Code</i>?</a>
+	<span> · </span>
+	<a href="#-contents">Contents</a>
+	<span> · </span>
+	<a href="#-usage">Usage</a>
+	<span> · </span>
+	<a href="#-table-of-puzzles">Table of Puzzles</a>
+	<span> · </span>
+	<a href="#-puzzles-story">Puzzles' Story</a>
+</h3>
 
 ---
 
 ![Completed calendar](calendar.png)
 
-## About
+## 🗣️ About
 
 This is the **first time** I participate in the event and have greatly enjoyed it! So much fun and learning in the process 😀
 
@@ -31,15 +40,17 @@ I tried following some **principles** when developing my solutions:
 
 Finally, I'm ecstatic for **completing** the puzzles within 24 days (I started only on the 6th) and learning this much in such a short amount of time! I have become a fan of the event and will definitely continue to participate and even try to complete the other years' puzzles 😁
 
-## What is *Advent of Code*?
+## 🌟 What is *Advent of Code*?
 
-> **TLDR:** an online event where a two-part programming puzzle is released each day from Dec 1st to 25th.
+	🚀 TLDR: an online event where a two-part programming puzzle is released each day from Dec 1st to 25th.
 
-[*Advent of Code*](http://adventofcode.com) is an online event created by [Eric Wastl](http://was.tl/).
+[Advent of Code](http://adventofcode.com) is an online event created by [Eric Wastl](http://was.tl/). In his words:
 
-It consists of *"an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like. People use them as a speed contest, interview prep, company training, university coursework, practice problems, or to challenge each other."* - source: https://adventofcode.com/about
+> Advent of Code is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like. People use them as a speed contest, interview prep, company training, university coursework, practice problems, or to challenge each other.
 
-## Contents
+*Source: https://adventofcode.com/about*
+
+## 📑 Contents
 
 The solutions for the puzzles are available in the folder [📁 my_solutions](my_solutions) and are organized into subfolders for each day of the event. There is also a subfolder called [📁 common_core](common_core) which stores the main framework developed to streamline the coding of puzzle solutions.
 
@@ -50,7 +61,7 @@ Inside each day folder, the following files can be found:
 * `main.py` - Python code for solving the puzzle.
 * `Makefile` - script for running the puzzle solution code.
 
-## Usage
+## 🛠️ Usage
 
 Inside each day folder, run `make` to get the solution for my personal input for the puzzle or `make test` to get the solution for tests given in the puzzle.
 
@@ -60,7 +71,7 @@ Some puzzles have different test input for each part; in this case, run `make te
 
 ![Screenshot of usage of make test1 and make test2](usage2.png)
 
-## Table of Puzzles
+## 🗓️ Table of Puzzles
 
 | DAY							| PUZZLE TITLE					| PUZZLE SUMMARY
 | :-:							| :-							| :-
