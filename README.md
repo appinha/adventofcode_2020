@@ -6,6 +6,14 @@
 	<i>My Python solutions for <b>Advent of Code 2020</b>.</i>
 </p	>
 
+<p align="center">
+	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/appinha/adventofcode_2020?color=blueviolet" />
+	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/appinha/adventofcode_2020?color=blueviolet" />
+	<img alt="Code language count" src="https://img.shields.io/github/languages/count/appinha/adventofcode_2020?color=blue" />
+	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/appinha/adventofcode_2020?color=blue" />
+	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/appinha/adventofcode_2020?color=brightgreen" />
+</p>
+
 <h3 align="center">
 	<a href="#%EF%B8%8F-about">About</a>
 	<span> · </span>
@@ -13,11 +21,9 @@
 	<span> · </span>
 	<a href="#-contents">Contents</a>
 	<span> · </span>
-	<a href="#-usage">Usage</a>
+	<a href="#%EF%B8%8F-usage">Usage</a>
 	<span> · </span>
-	<a href="#-table-of-puzzles">Table of Puzzles</a>
-	<span> · </span>
-	<a href="#-puzzles-story">Puzzles' Story</a>
+	<a href="#%EF%B8%8F-table-of-puzzles">Table of Puzzles</a>
 </h3>
 
 ---
@@ -49,6 +55,16 @@ Finally, I'm ecstatic for **completing** the puzzles within 24 days (I started o
 > Advent of Code is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like. People use them as a speed contest, interview prep, company training, university coursework, practice problems, or to challenge each other.
 
 *Source: https://adventofcode.com/about*
+
+### 🎄 This year story for the puzzles
+
+> After saving Christmas [five years in a row](https://adventofcode.com/events), you've decided to take a vacation at a nice resort on a tropical island. Surely, Christmas will go on without you.
+>
+> The tropical island has its own currency and is entirely cash-only. The gold coins used there have a little picture of a starfish; the locals just call them **stars**. None of the currency exchanges seem to have heard of them, but somehow, you'll need to find fifty of these coins by the time you arrive so you can pay the deposit on your room.
+>
+>To save your vacation, you need to get all **fifty stars** by December 25th.
+>
+>Collect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants **one star**. Good luck!
 
 ## 📑 Contents
 
@@ -100,13 +116,3 @@ Some puzzles have different test input for each part; in this case, run `make te
 | [📁 23](my_solutions/day_23)	| **Crab Cups**					| 📃 **Input:** cups' labels (integers).<br />⭐ **Part One:** simulate `100` moves of _crab's cup game_ with given cups (total of `9`) and get labels on the cups after cup `1`. <br />⭐ **Part Two:** simulate ten million (`10000000`) moves of _crab's cup game_ with one million (`1000000`) cups and get product of the two cup labels immediately clockwise (after) cup `1`.
 | [📁 24](my_solutions/day_24)	| **Lobby Layout**				| 📃 **Input:** list of the tiles that need to be flipped over, in the form of hex grid directions (`e`, `se`, `sw`, `w`, `nw`, and `ne`).<br />⭐ **Part One:** count how many tiles are left with the black side up after parsing the input - i.e. after going through the renovation crew's list and determining which tiles they need to flip. <br />⭐ **Part Two:** count how many tiles will be black after 100 days of living art exhibit of lobby's tile floor.
 | [📁 25](my_solutions/day_25)	| **Combo Breaker**				| 📃 **Input:** pair of public keys.<br />⭐ **Part One:** find encryption key of handshake.
-
-## Puzzles' Story
-
-> After saving Christmas [five years in a row](https://adventofcode.com/events), you've decided to take a vacation at a nice resort on a tropical island. Surely, Christmas will go on without you.
->
-> The tropical island has its own currency and is entirely cash-only. The gold coins used there have a little picture of a starfish; the locals just call them **stars**. None of the currency exchanges seem to have heard of them, but somehow, you'll need to find fifty of these coins by the time you arrive so you can pay the deposit on your room.
->
->To save your vacation, you need to get all **fifty stars** by December 25th.
->
->Collect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants **one star**. Good luck!
