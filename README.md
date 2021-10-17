@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-	<i>My Python solutions for <b>Advent of Code 2020</b>.</i>
+	<i>My solutions for <b>Advent of Code 2020</b>.</i>
 </p	>
 
 <p align="center">
@@ -23,7 +23,7 @@
 	<span> · </span>
 	<a href="#%EF%B8%8F-usage">Usage</a>
 	<span> · </span>
-	<a href="#%EF%B8%8F-table-of-puzzles">Table of Puzzles</a>
+	<a href="#%EF%B8%8F-table-of-puzzles">Table of puzzles</a>
 </h3>
 
 ---
@@ -68,18 +68,18 @@ Finally, I'm ecstatic for **completing** the puzzles within 24 days (I started o
 
 ## 📑 Contents
 
-The solutions for the puzzles are available in the folder [📁 my_solutions](my_solutions) and are organized into subfolders for each day of the event. There is also a subfolder called [📁 common_core](common_core) which stores the main framework developed to streamline the coding of puzzle solutions.
+My solutions for the puzzles are available in the folder [📁 my_solutions](my_solutions) and are organized into subfolders for each day of the event. There is also a subfolder called [📁 common_core](common_core) containing the main framework developed to streamline coding of puzzle solutions.
 
-Inside each day folder, the following files can be found:
+Inside each subfolder, the following files can be found:
 
 * `input_test.txt` - text file containing input from tests given in the puzzle.
 * `input.txt` - text file containing my personal input for the puzzle.
 * `main.py` - Python code for solving the puzzle.
-* `Makefile` - script for running the puzzle solution code.
+* `Makefile` - script for running the puzzle solving code.
 
 ## 🛠️ Usage
 
-Inside each day folder, run `make` to get the solution for my personal input for the puzzle or `make test` to get the solution for tests given in the puzzle.
+Inside each `day_*` folder, run `make` to get the solution for my personal input for the puzzle or `make test` to get solutions for the tests given in the puzzle.
 
 ![Screenshot of usage of make and make test](usage1.png)
 
@@ -87,7 +87,7 @@ Some puzzles have different test input for each part; in this case, run `make te
 
 ![Screenshot of usage of make test1 and make test2](usage2.png)
 
-## 🗓️ Table of Puzzles
+## 🗓️ Table of puzzles
 
 | DAY							| PUZZLE TITLE					| PUZZLE SUMMARY
 | :-:							| :-							| :-
