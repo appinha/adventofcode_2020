@@ -28,6 +28,32 @@
 
 ---
 
+[![Day 01](https://badgen.net/badge/01/%E2%98%85%E2%98%85/yellow)](my_solutions/day01)
+[![Day 02](https://badgen.net/badge/02/%E2%98%85%E2%98%85/yellow)](my_solutions/day02)
+[![Day 03](https://badgen.net/badge/03/%E2%98%85%E2%98%85/yellow)](my_solutions/day03)
+[![Day 04](https://badgen.net/badge/04/%E2%98%85%E2%98%85/yellow)](my_solutions/day04)
+[![Day 05](https://badgen.net/badge/05/%E2%98%85%E2%98%85/yellow)](my_solutions/day05)
+[![Day 06](https://badgen.net/badge/06/%E2%98%85%E2%98%85/yellow)](my_solutions/day06)
+[![Day 07](https://badgen.net/badge/07/%E2%98%85%E2%98%85/yellow)](my_solutions/day07)
+[![Day 08](https://badgen.net/badge/08/%E2%98%85%E2%98%85/yellow)](my_solutions/day08)
+[![Day 09](https://badgen.net/badge/09/%E2%98%85%E2%98%85/yellow)](my_solutions/day09)
+[![Day 10](https://badgen.net/badge/10/%E2%98%85%E2%98%85/yellow)](my_solutions/day10)
+[![Day 11](https://badgen.net/badge/11/%E2%98%85%E2%98%85/yellow)](my_solutions/day11)
+[![Day 12](https://badgen.net/badge/12/%E2%98%85%E2%98%85/yellow)](my_solutions/day12)
+[![Day 13](https://badgen.net/badge/13/%E2%98%85%E2%98%85/yellow)](my_solutions/day13)
+[![Day 14](https://badgen.net/badge/14/%E2%98%85%E2%98%85/yellow)](my_solutions/day14)
+[![Day 15](https://badgen.net/badge/15/%E2%98%85%E2%98%85/yellow)](my_solutions/day15)
+[![Day 16](https://badgen.net/badge/16/%E2%98%85%E2%98%85/yellow)](my_solutions/day16)
+[![Day 17](https://badgen.net/badge/17/%E2%98%85%E2%98%85/yellow)](my_solutions/day17)
+[![Day 18](https://badgen.net/badge/18/%E2%98%85%E2%98%85/yellow)](my_solutions/day18)
+[![Day 19](https://badgen.net/badge/19/%E2%98%85%E2%98%85/yellow)](my_solutions/day19)
+[![Day 20](https://badgen.net/badge/20/%E2%98%85%E2%98%85/yellow)](my_solutions/day20)
+[![Day 21](https://badgen.net/badge/21/%E2%98%85%E2%98%85/yellow)](my_solutions/day21)
+[![Day 22](https://badgen.net/badge/22/%E2%98%85%E2%98%85/yellow)](my_solutions/day22)
+[![Day 23](https://badgen.net/badge/23/%E2%98%85%E2%98%85/yellow)](my_solutions/day23)
+[![Day 24](https://badgen.net/badge/24/%E2%98%85%E2%98%85/yellow)](my_solutions/day24)
+[![Day 25](https://badgen.net/badge/25/%E2%98%85%E2%98%85/yellow)](my_solutions/day25)
+
 ![Completed calendar](calendar.png)
 
 ## 🗣️ About
